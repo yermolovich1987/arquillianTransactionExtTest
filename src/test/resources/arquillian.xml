@@ -1,0 +1,39 @@
+<arquillian xmlns="http://jboss.org/schema/arquillian"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://jboss.org/schema/arquillian
+        http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+    <container qualifier="jbossas-7-managed" default="true">
+        <configuration>
+            <!-- <property name="jbossHome">I:\jboss-as-7.1.1.Final</property> -->
+            <property name="jbossHome">/media/FAT/jboss-as-7.1.1.Final</property>
+            
+            <property name="serverConfig">standalone-full.xml</property>
+            <property name="allowConnectingToRunningServer">true</property> 
+            <!-- <property name="javaVmArguments">-Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n</property> -->
+        </configuration>
+        
+        <protocol type="Servlet 3.0"/>
+    </container>
+    <extension qualifier="persistence">
+    	<property name="defaultDataSource">java:/mydb</property>
+    	<property name="userTransactionJndi">java:jboss/UserTransaction</property>
+    	<property name="defaultCleanupPhase">NONE</property>
+	</extension>
+	<extension qualifier="persistence-dbunit">
+    	<property name="datatypeFactory">org.dbunit.ext.mssql.MsSqlDataTypeFactory</property>
+    	<property name="useIdentityInsert">true</property>
+    	<property name="excludePoi">true</property>
+    	<!-- 
+    		INSERT - Performs insert of the data defined in provided data sets. This is the default strategy.
+			CLEAN_INSERT - Performs insert of the data defined in provided data sets, after removal of all data present in the tables referred in provided files.
+			REFRESH - During this operation existing rows are updated and new ones are inserted. Entries already existing in the database which are not defined in the provided data set are not affected.
+			UPDATE - This strategy updates existing rows using data provided in the datasets. If dataset contain a row which is not present in the database (identified by its primary key) then exception is thrown.
+		-->
+    	<property name="dataSeedStrategy">REFRESH</property>
+	</extension>
+	
+	 <extension qualifier="transaction">
+    	<property name="manager">java:jboss/UserTransaction</property>
+  	</extension>
+</arquillian>

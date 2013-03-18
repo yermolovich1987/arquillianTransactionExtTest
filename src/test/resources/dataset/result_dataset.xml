@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <item id="77" name="test_init"/>
+    <item id="0" name="testTransactionRollback"/>
+    <item id="1" name="old_data"/>
+</dataset>

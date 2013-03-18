@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  version="3.1" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd">
+  <!-- <enterprise-beans>
+    <session>
+      <ejb-name>placeOrderBean</ejb-name>
+      <remote>com.dimasco.jboss_in_action.bean.PlaceOrder</remote>
+      <ejb-class>com.dimasco.jboss_in_action.bean.PlaceOrderBean</ejb-class>
+      <session-type>Stateful</session-type>
+      <transaction-type>Container</transaction-type>
+      <env-entry>
+        <env-entry-name>censorship</env-entry-name>
+		<env-entry-type>java.lang.Boolean</env-entry-type>
+		<env-entry-value>true</env-entry-value>
+      </env-entry>
+    </session>
+  </enterprise-beans> -->
+ 
+ <!--  <interceptors>
+    <interceptor>
+      <interceptor-class>test.Interceptor1</interceptor-class>
+    </interceptor>
+  </interceptors>
+ 
+  <assembly-descriptor>
+    <interceptor-binding>
+      <ejb-name>*</ejb-name>
+      <interceptor-class>test.Interceptor1</interceptor-class>
+    </interceptor-binding>
+  </assembly-descriptor> -->
+</ejb-jar>
